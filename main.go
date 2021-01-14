@@ -26,7 +26,7 @@ func main() {
 			for {
 				start := time.Now().UnixNano()
 				resp, _ := http.Get(url)
-				if resp.Body != nil {
+				if resp != nil && resp.Body != nil {
 					bytes, _ := ioutil.ReadAll(resp.Body)
 					end := time.Now().UnixNano()
 					fmt.Println(idx, "reads :", len(bytes), "speed :", float64((end-start)/1e6))
